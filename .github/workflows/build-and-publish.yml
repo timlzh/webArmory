@@ -1,13 +1,13 @@
 name: Build and Publish Image
 
-# on:
-#   push: # push 到主分支自动 发布
-#     branches: ["main"]
-#     paths-ignore: # 忽略一些不必要的文件
-#       - ".gitignore"
-#       - "README.md"
-#   pull_request:
-#     branches: ["main"]
+on:
+  push: # push 到主分支自动 发布
+    branches: ["main"]
+    paths-ignore: # 忽略一些不必要的文件
+      - ".gitignore"
+      - "README.md"
+  pull_request:
+    branches: ["main"]
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
           registry: ghcr.io # 声明镜像源
           username: ${{ github.actor }} # 当前github 用户名
           password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
-      - name: Build the mkdocs using squidfunk/mkdocs-material
+      - name: Build the mkdocs
         run: |
           docker pull squidfunk/mkdocs-material
           docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build
@@ -40,5 +40,3 @@ jobs:
             docker rm web-armory
             docker pull ghcr.io/timlzh/web-armory:latest 
             docker run -dp 60001:80  --restart=always --name web-armory ghcr.io/timlzh/web-armory
-
-        # 上面使用 80端口启动，当然你也可以换成自己想要的端口
