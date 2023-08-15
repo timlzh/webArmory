@@ -14,12 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Docker Login
-        uses: docker/login-action@v2.2.0
-        with:
-          registry: ghcr.io # 声明镜像源
-          username: ${{ github.actor }} # 当前github 用户名
-          password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
       - name: Build the mkdocs
         run: |
           docker pull squidfunk/mkdocs-material
@@ -27,8 +21,29 @@ jobs:
       - name: Build the Docker image
         run:
           | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://github.com/MrGaoGang?tab=packages 查看
-          docker build . --file Dockerfile --tag ghcr.io/timlzh/web-armory:latest 
-          docker push ghcr.io/timlzh/web-armory:latest
+          docker build . --file Dockerfile --tag ghcr.io/timlzh/webarmory:latest --tag timlzh/webarmory:latest
+      - name: Ghcr.io Login
+        uses: docker/login-action@v2.2.0
+        with:
+          registry: ghcr.io # 声明镜像源
+          username: ${{ github.actor }} # 当前github 用户名
+          password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
+      - name: Push image to ghcr.io
+        run:
+          | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://github.com/MrGaoGang?tab=packages 查看
+          docker push ghcr.io/timlzh/webarmory:latest
+          docker logout ghcr.io
+      - name: Docker hub Login
+        uses: docker/login-action@v2.2.0
+        with:
+          registry: docker.io # 声明镜像源
+          username: ${{ github.actor }} # 当前github 用户名
+          password: ${{ secrets.DOCKER_HUB_TOKEN }} # 需要去 https://hub.docker.com/settings/security 生成一个 名为 token，注意此token 需要读写 packages 等权限
+      - name: Push image to docker hub
+        run:
+          | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://hub.docker.com/r/timlzh/web-armory 查看
+          docker push timlzh/webarmory:latest
+          docker logout docker.io
       - name: Update image on server via ssh
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -37,7 +52,7 @@ jobs:
           password: ${{ secrets.SERVER_PWD }} # 服务器密码；需要去仓库的 settings/secrets/actions 去创建
           port: ${{ secrets.SERVER_PORT }} # 服务器端口，默认22；需要去仓库的 settings/secrets/actions 去创建
           script: | # 重启更新镜像
-            docker stop web-armory 
-            docker rm web-armory
-            docker pull ghcr.io/timlzh/web-armory:latest 
-            docker run -dp 60001:80  --restart=always --name web-armory ghcr.io/timlzh/web-armory
+            docker stop webarmory 
+            docker rm webarmory
+            docker pull timlzh/webarmory:latest
+            docker run -dp 60001:80  --restart=always --name webarmory timlzh/webarmory:latest
