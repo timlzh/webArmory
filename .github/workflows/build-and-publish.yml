@@ -23,7 +23,7 @@ jobs:
       - name: Build the mkdocs
         run: |
           docker pull squidfunk/mkdocs-material
-          docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build
+          docker run -t -v ${PWD}:/docs squidfunk/mkdocs-material build
       - name: Build the Docker image
         run:
           | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://github.com/MrGaoGang?tab=packages 查看
