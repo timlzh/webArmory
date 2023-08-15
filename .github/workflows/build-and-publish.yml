@@ -19,33 +19,15 @@ jobs:
           registry: ghcr.io # 声明镜像源
           username: ${{ github.actor }} # 当前github 用户名
           password: ${{ secrets.HUB_GITHUB_TOKEN }} # 需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "16.14"
-      - uses: actions/cache@v2
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-        # Runs a single command using the runners shell
-      - name: pnpm install
-        run: npm install -g pnpm --registry https://registry.npm.taobao.org
-      - name: Install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm config set registry https://registry.npm.taobao.org && pnpm i
-
-      - name: Build
-        run: npm run build
-      - name: Show Dir
-        run: ls
-
-      - name: Build the  Docker image
+      - name: Build the mkdocs using squidfunk/mkdocs-material
+        run: |
+          docker pull squidfunk/mkdocs-material
+          docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build
+      - name: Build the Docker image
         run:
           | # 使用 上一步写的 Dockerfile 构建镜像并发布到私有仓库； 发布完成可以去 https://github.com/MrGaoGang?tab=packages 查看
-          docker build . --file Dockerfile --tag ghcr.io/你的github名称/web-image:latest 
-          docker push ghcr.io/你的github名称/web-image:latest
+          docker build . --file Dockerfile --tag ghcr.io/timlzh/web-armory:latest 
+          docker push ghcr.io/timlzh/web-armory:latest
       - name: 更新服务器
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -54,9 +36,9 @@ jobs:
           password: ${{ secrets.SERVER_PWD }} # 服务器密码；需要去仓库的 settings/secrets/actions 去创建
           port: ${{ secrets.SERVER_PORT }} # 服务器端口，默认22；需要去仓库的 settings/secrets/actions 去创建
           script: | # 重启更新镜像
-            docker stop web-image 
-            docker rm web-image
-            docker pull ghcr.io/timlzh/web-image:latest 
-            docker run -dp 80:80  --restart=always --name web-image ghcr.io/你的github名称/web-image
+            docker stop web-armory 
+            docker rm web-armory
+            docker pull ghcr.io/timlzh/web-armory:latest 
+            docker run -dp 60001:80  --restart=always --name web-armory ghcr.io/timlzh/web-armory
 
         # 上面使用 80端口启动，当然你也可以换成自己想要的端口
