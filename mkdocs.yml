@@ -57,7 +57,7 @@ theme:
 plugins:
   - search
   - minify:
-      minify_html: false
+      minify_html: true
 
 # Extensions
 markdown_extensions:
