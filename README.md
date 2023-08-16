@@ -2,6 +2,10 @@
 
 欢迎使用Web武器库，本CVE知识库内容非原创，为方便搭建搜索，特意收集能找到的CVE知识库并统一生成至一个gitbook中，如有侵权请联系删除。
 
+## Demo
+
+[Demo](http://wiki.timlzh.com/)
+
 ## 使用方法
 
 ### Docker(推荐)
