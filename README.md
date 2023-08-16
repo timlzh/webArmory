@@ -20,6 +20,8 @@ docker run -it -dp 8000:80 timlzh/webarmory:latest
 ### Mkdocs-Material Docker镜像编译运行
 
 ```bash
+git clone https://github.com/timlzh/webArmory
+cd webArmory
 docker pull squidfunk/mkdocs-material
 docker run -t -v ${PWD}:/docs squidfunk/mkdocs-material serve
 ```
@@ -31,6 +33,8 @@ docker run -t -v ${PWD}:/docs squidfunk/mkdocs-material serve
 运行环境：Python3
 
 ```bash
+git clone https://github.com/timlzh/webArmory
+cd webArmory
 pip install mkdocs mkdocs-material
 mkdocs serve
 ```
