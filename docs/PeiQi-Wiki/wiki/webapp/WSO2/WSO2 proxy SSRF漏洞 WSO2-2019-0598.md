@@ -169,4 +169,5 @@ private void processRequest(HttpServletRequest request, HttpServletResponse serv
 
 最后回显至页面中, 造成存在回显的SSRF
 
-![img](../../../.vuepress/public/img/1650957201523-47aa0d2c-7cc7-4c10-b14c-fd48049681d3.png)![img](/assets/PeiQi-Wiki/img/1650957230578-815a5156-d3b5-419b-a2e7-c2ac97a2c562.png)
+![img](/assets/PeiQi-Wiki/img/1650957201523-47aa0d2c-7cc7-4c10-b14c-fd48049681d3.png)
+![img](/assets/PeiQi-Wiki/img/1650957230578-815a5156-d3b5-419b-a2e7-c2ac97a2c562.png)

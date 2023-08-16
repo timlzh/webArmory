@@ -58,4 +58,5 @@ widgets=1' and updatexml(0x3a,concat(1,(select user())),1)--
 
 调试后可以发现，数据库报错语句会回显至页面中，报错注入即可获取敏感信息
 
-![img](../../../.vuepress/public/img/1634002917512-820b18c8-d37a-4507-974c-1ba9c2afc2ed.png)![img](/assets/PeiQi-Wiki/img/1634003089227-452c8b4e-d367-4f01-af1f-e90a79bfd91f.png)
+![img](/assets/PeiQi-Wiki/img/1634002917512-820b18c8-d37a-4507-974c-1ba9c2afc2ed.png)
+![img](/assets/PeiQi-Wiki/img/1634003089227-452c8b4e-d367-4f01-af1f-e90a79bfd91f.png)

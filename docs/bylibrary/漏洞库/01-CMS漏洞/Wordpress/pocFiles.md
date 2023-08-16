@@ -1,0 +1,5 @@
+[WordPress_4.7_Info_Disclosure.py](/bylibrary/漏洞库/01-CMS漏洞/Wordpress/WordPress_4.7_Info_Disclosure.py)
+[CVE-2018-6389.py](/bylibrary/漏洞库/01-CMS漏洞/Wordpress/CVE-2018-6389.py)
+[WordPress_4.7.0-4.7.1_未授权内容注入.py](/bylibrary/漏洞库/01-CMS漏洞/Wordpress/WordPress_4.7.0-4.7.1_未授权内容注入.py)
+[CVE-2019-6977-imagecolormatch.php](/bylibrary/漏洞库/01-CMS漏洞/Wordpress/CVE-2019-6977-imagecolormatch.php)
+[WordPress_4.4_SSRF.py](/bylibrary/漏洞库/01-CMS漏洞/Wordpress/WordPress_4.4_SSRF.py)

