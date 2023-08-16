@@ -7,7 +7,31 @@
 ### Docker(推荐)
 
 ```bash
+docker pull timlzh/webarmory:latest
+docker run -it -dp 8000:80 timlzh/webarmory:latest
+```
 
+打开浏览器访问`http://127.0.0.1:8000`即可。
+
+### Mkdocs-Material Docker镜像编译运行
+
+```bash
+docker pull squidfunk/mkdocs-material
+docker run -t -v ${PWD}:/docs squidfunk/mkdocs-material serve
+```
+
+打开浏览器访问`http://127.0.0.1:8000`即可。
+
+### 本地编译运行
+
+运行环境：Python3
+
+```bash
+pip install mkdocs mkdocs-material
+mkdocs serve
+```
+
+打开浏览器访问`http://127.0.0.1:8000`即可。
 
 ## Organized by
 

@@ -25,8 +25,8 @@ site_author: Timlzh
 site_description: 本知识库内容非原创，为方便搭建搜索，特意收集能找到的知识库并统一生成至一个gitbook中，如有侵权请联系删除。
 
 # Repository
-repo_name: 'timlzh/webAmory'
-repo_url: 'https://github.com/timlzh/webAmory'
+repo_name: 'timlzh/webArmory'
+repo_url: 'https://github.com/timlzh/webArmory'
 edit_uri: 'edit/master/docs/'
 
 # Copyright
