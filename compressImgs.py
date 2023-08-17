@@ -23,7 +23,7 @@ def compressImage(srcPath):
                         # print(srcFile)
                         sImg=Image.open(srcFile)
                         w,h=sImg.size
-                        dImg=sImg.resize((int(w/2),int(h/2)),Image.ANTIALIAS)
+                        dImg=sImg.resize((int(w/2),int(h/2)),Image.Resampling.LANCZOS)
                         dImg.save(srcFile, quality=95)
                         dstSize=toMB(os.path.getsize(srcFile))
                         totDstSize+=dstSize
